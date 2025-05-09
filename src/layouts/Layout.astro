@@ -1,0 +1,51 @@
+---
+import "../styles/global.css";
+
+export type Props = {
+	title?: string;
+	description?: string;
+	color?: string;
+	keywords?: string[];
+};
+
+const site = Astro.site;
+const { title, description, keywords, color } = Astro.props;
+---
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+
+		<meta name="keywords" content={(keywords ?? []).join(", ")} />
+		<meta name="theme-color" content={color ?? "#00fa9a"} />
+		<meta
+			name="description"
+			content={description ??
+				"Wktk Tutorialは初心者向けプログラミング学習サイトです。是非気軽にご覧ください。"}
+		/>
+
+		<title>{title ?? "Home"} / Wktk Tutorial</title>
+
+		<meta property="og:url" content={site ? site.toString() : "https://tutorial.wktk.moe"} />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={`${title ?? "Home"} / Wktk Tutorial`} />
+		<meta
+			property="og:description"
+			content={description ??
+				"Wktk Tutorialは初心者向けプログラミング学習サイトです。是非気軽にご覧ください。"}
+		/>
+		<meta property="og:site_name" content="Wktk Tutorial" />
+
+		<meta name="format-detection" content="telephone=no,email=no,address=no" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@thunlights" />
+		<meta name="twitter:creator" content="@thunlights" />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
