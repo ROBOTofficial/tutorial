@@ -1,0 +1,3 @@
+Sitemap: https://tutorial.wktk.moe/sitemap-index.xml
+User-agent: *
+Disallow: 
