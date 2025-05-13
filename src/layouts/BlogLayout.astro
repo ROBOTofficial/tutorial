@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Layout from "./Layout.astro";
+import Blog from "../components/Blog.astro";
 import MarkDown from "../components/MarkDown.astro";
 
 import { parseDate } from "../lib/date.js";
@@ -19,30 +20,26 @@ const { title, pubDate, updatedDate, Content } = Astro.props;
 
 <Layout {title}>
 	<Header />
-	<main>
-		<div class="blog">
-			<h1 class="title">{title}</h1>
+	<Blog>
+		<h1 class="title">{title}</h1>
+		<div>
 			<div>
-				<div>
-					<small>
-						<time datetime={pubDate.toISOString()}>公開日: {parseDate(pubDate)}</time>
-					</small>
-				</div>
-				<div>
-					<small>
-						<time datetime={updatedDate.toISOString()}>最終変更日: {parseDate(updatedDate)}</time>
-					</small>
-				</div>
+				<small>
+					<time datetime={pubDate.toISOString()}>公開日: {parseDate(pubDate)}</time>
+				</small>
+			</div>
+			<div>
+				<small>
+					<time datetime={updatedDate.toISOString()}>最終変更日: {parseDate(updatedDate)}</time>
+				</small>
 			</div>
 		</div>
-	</main>
-	<main>
-		<div class="blog">
-			<MarkDown>
-				<Content />
-			</MarkDown>
-		</div>
-	</main>
+	</Blog>
+	<Blog>
+		<MarkDown>
+			<Content />
+		</MarkDown>
+	</Blog>
 </Layout>
 
 <style is:global>
@@ -52,19 +49,8 @@ const { title, pubDate, updatedDate, Content } = Astro.props;
 </style>
 
 <style>
-	main {
-		overflow: hidden;
-		width: 80%;
-		margin: 20px auto;
-		border-radius: 25px;
-		background-color: white;
-	}
 	.title {
 		font-weight: 700;
 		font-size: 30px;
-	}
-	.blog {
-		overflow: hidden;
-		margin: 30px 20px;
 	}
 </style>
