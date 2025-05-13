@@ -3,22 +3,37 @@ import Header from "../components/Header.astro";
 import Layout from "./Layout.astro";
 import MarkDown from "../components/MarkDown.astro";
 
+import { parseDate } from "../lib/date.js";
+
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 
 export type Props = {
-	title?: string;
-
+	title: string;
+	pubDate: Date;
+	updatedDate: Date;
 	Content: AstroComponentFactory;
 };
 
-const { title, Content } = Astro.props;
+const { title, pubDate, updatedDate, Content } = Astro.props;
 ---
 
 <Layout {title}>
 	<Header />
 	<main>
 		<div class="blog">
-			<h1 class="title">{title ?? "Home"}</h1>
+			<h1 class="title">{title}</h1>
+			<div>
+				<div>
+					<small>
+						<time datetime={pubDate.toISOString()}>公開日: {parseDate(pubDate)}</time>
+					</small>
+				</div>
+				<div>
+					<small>
+						<time datetime={updatedDate.toISOString()}>最終変更日: {parseDate(updatedDate)}</time>
+					</small>
+				</div>
+			</div>
 		</div>
 	</main>
 	<main>
