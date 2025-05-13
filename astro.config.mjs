@@ -7,6 +7,8 @@ import remarkLinkCard from "remark-link-card";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
+import icon from "astro-icon";
+
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
@@ -20,7 +22,18 @@ import rehypeExternalLinks from "rehype-external-links";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://tutorial.wktk.moe",
-	integrations: [mdx(), sitemap()],
+	integrations: [
+		icon({
+			include: {
+				"preprocess: vitePreprocess(),": ["*"],
+				"fa6-brands": ["*"],
+				"fa6-regular": ["*"],
+				"fa6-solid": ["*"]
+			}
+		}),
+		mdx(),
+		sitemap()
+	],
 	markdown: {
 		remarkPlugins: [
 			remarkMath,
