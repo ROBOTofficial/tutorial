@@ -1,0 +1,55 @@
+---
+import Header from "../components/Header.astro";
+import Layout from "./Layout.astro";
+import MarkDown from "../components/MarkDown.astro";
+
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+
+export type Props = {
+	title?: string;
+
+	Content: AstroComponentFactory;
+};
+
+const { title, Content } = Astro.props;
+---
+
+<Layout {title}>
+	<Header />
+	<main>
+		<div class="blog">
+			<h1 class="title">{title ?? "Home"}</h1>
+		</div>
+	</main>
+	<main>
+		<div class="blog">
+			<MarkDown>
+				<Content />
+			</MarkDown>
+		</div>
+	</main>
+</Layout>
+
+<style is:global>
+	.anchor {
+		margin-left: 6px;
+	}
+</style>
+
+<style>
+	main {
+		overflow: hidden;
+		width: 80%;
+		margin: 20px auto;
+		border-radius: 25px;
+		background-color: white;
+	}
+	.title {
+		font-weight: 700;
+		font-size: 30px;
+	}
+	.blog {
+		overflow: hidden;
+		margin: 30px 20px;
+	}
+</style>
