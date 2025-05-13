@@ -41,6 +41,6 @@
 		"remark-math": "^6.0.0",
 		"remark-sectionize": "^2.1.0",
 		"tailwindcss": "^4.1.5",
-		"typescript-eslint": "^8.32.0"
+		"typescript-eslint": "^8.32.1"
 	}
 }
