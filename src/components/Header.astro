@@ -1,14 +1,30 @@
 ---
 import "@fontsource/dela-gothic-one";
 import "@fontsource/kiwi-maru";
+
+import { REPOSITORY } from "../consts";
 ---
 
 <header>
 	<div class="main bg-white">
-		<div class="main-contents text-center">
-			<a href="/">
-				<h1 class="title">Home</h1>
-			</a>
+		<div class="main-contents">
+			<div>
+				<a href="/">
+					<h1 class="title">Wktk Tutorial</h1>
+				</a>
+				<a href="/about">
+					<h1>About</h1>
+				</a>
+				<a href="/search">
+					<h1>Search</h1>
+				</a>
+			</div>
+
+			<div>
+				<a href={REPOSITORY.url} class="links" target="_blank" rel="noopener noreferrer">
+					<h1>GITHUB</h1>
+				</a>
+			</div>
 		</div>
 	</div>
 </header>
@@ -26,7 +42,14 @@ import "@fontsource/kiwi-maru";
 	}
 	.main-contents {
 		overflow: hidden;
-		margin: 14px 0;
+		margin: 14px;
+		display: grid;
+		grid-template-columns: 1fr auto;
+	}
+	.main-contents a {
+		margin: 0 3px;
+		display: inline-block;
+		font-family: "Kiwi Maru", serif;
 	}
 	.title {
 		font-family: "Dela Gothic One", system-ui;
