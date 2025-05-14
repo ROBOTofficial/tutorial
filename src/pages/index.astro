@@ -1,7 +1,20 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import "@fontsource-variable/noto-sans-jp";
+
+import MainLayout from "../layouts/MainLayout.astro";
+import Blog from "../components/Blog.astro";
 ---
 
-<Layout>
-	<div></div>
-</Layout>
+<MainLayout>
+	<Blog>
+		<h1 class="title text-center text-4xl">Wktk Tutorialへようこそ!!</h1>
+		<p class="mt-7 text-center">オープンソースのプログラミング勉強サイトです!!</p>
+	</Blog>
+</MainLayout>
+
+<style>
+	.title {
+		font-weight: 700;
+		font-family: "Noto Sans JP Variable", sans-serif;
+	}
+</style>
