@@ -1,7 +1,7 @@
 ---
 title: 歴史
-pubDate: 2025-5-13
-updatedDate: 2025-5-13
+pubDate: 2025-5-14
+updatedDate: 2025-5-14
 ---
 
 ## 2025年5月13日設立

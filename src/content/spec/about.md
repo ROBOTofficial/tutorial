@@ -1,7 +1,7 @@
 ---
 title: Wktk Tutorialって何？
-pubDate: 2025-5-13
-updatedDate: 2025-5-13
+pubDate: 2025-5-14
+updatedDate: 2025-5-14
 ---
 
 Wktk Tutorialは2025年5月13日より公開されたオープンソースのプログラミング勉強サイトです。
