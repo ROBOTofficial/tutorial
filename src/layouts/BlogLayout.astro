@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import Layout from "./Layout.astro";
 import Blog from "../components/Blog.astro";
 import MarkDown from "../components/MarkDown.astro";
@@ -19,27 +20,32 @@ const { title, pubDate, updatedDate, Content } = Astro.props;
 ---
 
 <Layout {title}>
-	<Header />
-	<Blog>
-		<h1 class="title">{title}</h1>
-		<div>
-			<div>
-				<small>
-					<time datetime={pubDate.toISOString()}>公開日: {parseDate(pubDate)}</time>
-				</small>
-			</div>
-			<div>
-				<small>
-					<time datetime={updatedDate.toISOString()}>最終変更日: {parseDate(updatedDate)}</time>
-				</small>
-			</div>
-		</div>
-	</Blog>
-	<Blog>
-		<MarkDown>
-			<Content />
-		</MarkDown>
-	</Blog>
+	<div class="layout">
+		<Header />
+		<main>
+			<Blog>
+				<h1 class="title">{title}</h1>
+				<div>
+					<div>
+						<small>
+							<time datetime={pubDate.toISOString()}>公開日: {parseDate(pubDate)}</time>
+						</small>
+					</div>
+					<div>
+						<small>
+							<time datetime={updatedDate.toISOString()}>最終変更日: {parseDate(updatedDate)}</time>
+						</small>
+					</div>
+				</div>
+			</Blog>
+			<Blog>
+				<MarkDown>
+					<Content />
+				</MarkDown>
+			</Blog>
+		</main>
+		<Footer />
+	</div>
 </Layout>
 
 <style is:global>
@@ -52,5 +58,10 @@ const { title, pubDate, updatedDate, Content } = Astro.props;
 	.title {
 		font-weight: 700;
 		font-size: 30px;
+	}
+	.layout {
+		min-height: 100vh;
+		display: grid;
+		grid-template-rows: auto 1fr auto;
 	}
 </style>
